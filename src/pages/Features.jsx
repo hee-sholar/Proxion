@@ -12,11 +12,12 @@ export function Features() {
   }, []);
 
   // Image size for feature boxes
-  const imageSize = "w-80 h-80 md:w-96 md:h-96 rounded-3xl shadow-2xl";
+  const imageSize =
+    "w-full max-w-xs sm:max-w-sm md:w-96 md:h-96 h-auto rounded-3xl shadow-2xl border border-gray-700";
 
-  // Container size for feature boxes
+  // Improved Container size (better spacing on mobile)
   const containerSize =
-    "rounded-3xl p-6 flex flex-col items-center space-y-6 h-[36rem] md:h-[44rem] ";
+    "rounded-3xl p-6 flex flex-col items-center space-y-6";
 
   return (
     <section className="relative bg-black text-white py-24 px-6">
@@ -39,7 +40,7 @@ export function Features() {
               Private By Default
             </h3>
             <img
-              src="/one.png"
+              src="/Iphone1.png"
               alt="Private By Default"
               className={imageSize}
             />
@@ -53,7 +54,7 @@ export function Features() {
               Security Built In
             </h3>
             <img
-              src="/two.png"
+              src="/Iphone2.png"
               alt="Security Built In"
               className={imageSize}
             />
@@ -67,7 +68,7 @@ export function Features() {
               Designed For Mass Adoption
             </h3>
             <img
-              src="/three.png"
+              src="/Iphone3.png"
               alt="Mass Adoption"
               className={imageSize}
             />
