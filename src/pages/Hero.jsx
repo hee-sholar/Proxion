@@ -74,7 +74,7 @@ export function Hero() {
           <img
             src="/Group.png"
             alt="App Mockup"
-            className="w-full max-w-none sm:max-w-5xl mx-auto rounded-3xl shadow-2xl border border-gray-800 animate-float"
+            className="w-full max-w-none sm:max-w-5xl mx-auto rounded-3xl shadow-2xl  animate-float"
           />
         </div>
 
