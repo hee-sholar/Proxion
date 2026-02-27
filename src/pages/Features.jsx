@@ -13,7 +13,7 @@ export function Features() {
 
   // Image size for feature boxes
   const imageSize =
-  "w-72 md:w-80 h-[450px] md:h-[520px] object-contain rounded-3xl shadow-2xl ";
+    "w-72 md:w-80 h-[450px] md:h-[520px] object-contain rounded-3xl shadow-2xl ";
 
   // Improved Container size (better spacing on mobile)
   const containerSize =
@@ -22,10 +22,7 @@ export function Features() {
   return (
     <section className="relative bg-black text-white py-24 px-6">
       {/* Section Header */}
-      <div
-        className="max-w-7xl mx-auto text-center mb-16"
-        data-aos="fade-down"
-      >
+      <div className="max-w-7xl mx-auto text-center mb-16" data-aos="fade-down">
         <h2 className="text-3xl md:text-4xl font-semibold">
           <span className="text-gray-500">Intelligent</span> By Design
         </h2>
@@ -67,28 +64,24 @@ export function Features() {
             <h3 className="font-semibold text-2xl text-center md:text-left">
               <span className="text-gray-400">Designed For </span>Mass Adoption
             </h3>
-            <img
-              src="/Iphone3.png"
-              alt="Mass Adoption"
-              className={imageSize}
-            />
+            <img src="/Iphone3.png" alt="Mass Adoption" className={imageSize} />
           </div>
         </div>
       </div>
 
       {/* Proxion Coming Section */}
       <div className="flex flex-col items-center justify-center space-y-8 px-4 md:px-0">
-  <h1 className="text-gray-100 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
-    <span className="text-gray-400">Proxion</span> Is Coming !
-  </h1>
+        <h1 className="text-gray-100 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
+          <span className="text-gray-400">Proxion</span> Is Coming !
+        </h1>
 
-  <div className="relative w-full flex justify-center">
-    <img
-      src="/iphone.png"
-      alt="Phone Mockup"
-      className="transform -rotate-12 w-64 h-auto sm:w-80 md:w-[30rem] md:h-[25rem] drop-shadow-2xl"
-    />
-  </div>
+        <div className="relative w-full flex justify-center">
+          <img
+            src="/iphone.png"
+            alt="Phone Mockup"
+            className="transform -rotate-12 w-64 h-auto sm:w-80 md:w-[30rem] md:h-[25rem] drop-shadow-2xl"
+          />
+        </div>
       </div>
     </section>
   );
