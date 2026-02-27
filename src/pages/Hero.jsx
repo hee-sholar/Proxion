@@ -22,7 +22,7 @@ export function Hero() {
           <div className="flex justify-center mb-8">
             <div className="px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50">
               <span className="text-sm text-gray-400">
-                Wallet for the new digital economy
+                The wallet for the new digital economy
               </span>
             </div>
           </div>
