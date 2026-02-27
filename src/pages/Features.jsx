@@ -13,11 +13,11 @@ export function Features() {
 
   // Image size for feature boxes
   const imageSize =
-    "w-full max-w-xs sm:max-w-sm md:w-96 md:h-96 h-auto rounded-3xl shadow-2xl border border-gray-700";
+  "w-72 md:w-80 h-[450px] md:h-[520px] object-contain rounded-3xl shadow-2xl ";
 
   // Improved Container size (better spacing on mobile)
   const containerSize =
-    "rounded-3xl p-6 flex flex-col items-center space-y-6";
+    "rounded-3xl p-6 flex flex-col items-center space-y-6 border border-[#0D0D0D] bg-[#0D0D0D] w-full max-w-sm sm:max-w-md md:max-w-lg";
 
   return (
     <section className="relative bg-black text-white py-24 px-6">
@@ -36,8 +36,8 @@ export function Features() {
         {/* Left Column */}
         <div data-aos="fade-right" className="flex justify-center">
           <div className={`${containerSize}`}>
-            <h3 className="font-semibold text-lg text-center md:text-left">
-              Private By Default
+            <h3 className="font-semibold text-2xl text-center md:text-left">
+              <span className="text-gray-500">Private</span> By Default
             </h3>
             <img
               src="/Iphone1.png"
@@ -64,8 +64,8 @@ export function Features() {
         {/* Right Column */}
         <div data-aos="fade-left" className="flex justify-center">
           <div className={`${containerSize}`}>
-            <h3 className="font-semibold text-lg text-center md:text-left">
-              Designed For Mass Adoption
+            <h3 className="font-semibold text-2xl text-center md:text-left">
+              <span className="text-gray-400">Designed For </span>Mass Adoption
             </h3>
             <img
               src="/Iphone3.png"
@@ -78,8 +78,8 @@ export function Features() {
 
       {/* Proxion Coming Section */}
       <div className="flex flex-col items-center justify-center space-y-8 px-4 md:px-0">
-  <h1 className="text-gray-400 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
-    Proxion Is Coming!
+  <h1 className="text-gray-100 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
+    <span className="text-gray-400">Proxion</span> Is Coming !
   </h1>
 
   <div className="relative w-full flex justify-center">

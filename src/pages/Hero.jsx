@@ -31,7 +31,7 @@ export function Hero() {
           <h1 className="text-gray-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-center mb-6 leading-tight">
             The wallet that
             <br />
-            understands you.
+            <span className="text-gray-100">understands you.</span>
           </h1>
 
           {/* Subheading */}
