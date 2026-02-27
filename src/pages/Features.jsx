@@ -27,7 +27,7 @@ export function Features() {
         data-aos="fade-down"
       >
         <h2 className="text-3xl md:text-4xl font-semibold">
-          Intelligent By Design
+          <span className="text-gray-500">Intelligent</span> By Design
         </h2>
       </div>
 

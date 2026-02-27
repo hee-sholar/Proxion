@@ -22,13 +22,13 @@ export function Hero() {
           <div className="flex justify-center mb-8">
             <div className="px-4 py-2 rounded-full border border-gray-700 bg-gray-900/50">
               <span className="text-sm text-gray-400">
-                The intelligent wallet for the new digital economy
+                Wallet for the new digital economy
               </span>
             </div>
           </div>
 
           {/* Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-center mb-6 leading-tight">
+          <h1 className="text-gray-500 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-center mb-6 leading-tight">
             The wallet that
             <br />
             understands you.
