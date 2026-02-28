@@ -13,18 +13,20 @@ export function Navbar() {
         
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src="/logo.png" alt="Proxion Logo" className="h-10 w-auto" />
+          <a href="/">
+            <img src="/logo.png" alt="Proxion Logo" className="h-10 w-auto" />
+          </a>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#" className="text-gray-300 hover:text-white transition">
+          <a href="/" className="text-gray-300 hover:text-white transition">
             Home
           </a>
-          <a href="#" className="text-gray-300 hover:text-white transition">
+          <a href="/" className="text-gray-300 hover:text-white transition">
             Features
           </a>
-          <a href="#" className="text-gray-300 hover:text-white transition">
+          <a href="/" className="text-gray-300 hover:text-white transition">
             Whitepaper
           </a>
         </nav>
@@ -50,13 +52,13 @@ export function Navbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-black border-t border-gray-800 px-6 py-6 space-y-6">
-          <a href="#" className="block text-gray-300 hover:text-white">
+          <a href="/" className="block text-gray-300 hover:text-white">
             Home
           </a>
-          <a href="#" className="block text-gray-300 hover:text-white">
+          <a href="/" className="block text-gray-300 hover:text-white">
             Features
           </a>
-          <a href="#" className="block text-gray-300 hover:text-white">
+          <a href="/" className="block text-gray-300 hover:text-white">
             Whitepaper
           </a>
 
