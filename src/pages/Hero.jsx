@@ -28,18 +28,15 @@ export function Hero() {
               </span>
             </div>
           </div>
-
           <h1 className="text-gray-500 text-[clamp(2rem,6vw,4.5rem)] font-light text-center mb-4 leading-tight">
             The wallet that
             <br />
             <span className="text-gray-100">understands you.</span>
           </h1>
-
           <p className="text-center text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-xl mx-auto">
             An intelligent, secure wallet designed for how people actually
             interact with the digital world.
           </p>
-
           <div className="flex justify-center mb-4">
             <div className="w-full max-w-md">
               <div className="flex flex-col sm:flex-row gap-3 w-full">
@@ -54,7 +51,7 @@ export function Hero() {
                   />
                 </div>
 
-                <button className="w-full sm:w-auto px-6 py-3 bg-cyan-400 text-black rounded-full font-semibold hover:bg-cyan-300 transition">
+                <button className="cursor-pointer w-full sm:w-auto px-6 py-3 bg-[#00FFC3] text-black rounded-full font-semibold hover:bg-[#00e6b0] transition">
                   Get Early Access
                 </button>
               </div>
