@@ -20,7 +20,7 @@ export function Features() {
     "rounded-3xl p-6 flex flex-col items-center space-y-6 border border-[#0D0D0D] bg-[#0D0D0D] w-full max-w-sm sm:max-w-md md:max-w-lg";
 
   return (
-    <section id="#features" className="relative bg-black text-white py-24 px-6">
+    <section className="relative bg-black text-white py-24 px-6">
       {/* Section Header */}
       <div className="max-w-7xl mx-auto text-center mb-16" data-aos="fade-down">
         <h2 className="text-3xl md:text-4xl font-semibold">

@@ -4,4 +4,9 @@
 
 body {
   font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
