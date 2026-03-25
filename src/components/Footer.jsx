@@ -18,7 +18,7 @@ export default function Footer() {
             placeholder="Enter your email address"
             className="w-full sm:w-auto px-4 py-2 rounded-lg sm:rounded-l-lg border border-gray-600 bg-black text-white placeholder-gray-400 focus:outline-none focus:border-green-500"
           />
-          <button className="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-black font-semibold px-4 py-2 rounded-lg sm:rounded-r-lg">
+          <button className="w-full sm:w-auto bg-[#00FFC3] hover:bg-[#00e6b0] text-black font-semibold px-4 py-2 rounded-lg sm:rounded-r-lg">
             Get Early Access
           </button>
         </div>
@@ -35,7 +35,12 @@ export default function Footer() {
         <nav className="hidden sm:flex gap-6">
           <a href="/" className="hover:text-green-500">Home</a>
           <a href="#features" className="hover:text-green-500">Features</a>
-          <a href="#whitepaper" className="hover:text-green-500">Whitepaper</a>
+          <a href="https://your-gitbook-link.gitbook.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-green-500">
+            Whitepaper
+          </a>
         </nav>
       </div>
 
@@ -44,7 +49,11 @@ export default function Footer() {
         <div className="sm:hidden mt-4 flex flex-col items-center gap-3 text-center">
           <a href="/">Home</a>
           <a href="#features">Features</a>
-          <a href="#whitepaper">Whitepaper</a>
+          <a href="https://your-gitbook-link.gitbook.io"
+            target="_blank"
+            rel="noopener noreferrer">
+              Whitepaper
+          </a>
         </div>
       )}
     </footer>

@@ -70,19 +70,27 @@ export function Features() {
       </div>
 
       {/* Proxion Coming Section */}
-      <div className="flex flex-col items-center justify-center space-y-8 px-4 md:px-0">
-        <h1 className="text-gray-100 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
-          <span className="text-gray-400">Proxion</span> Is Coming !
-        </h1>
+      <div className="flex flex-col items-center justify-center space-y-10 px-4">
+  <h1 className="text-gray-100 text-center text-2xl sm:text-3xl md:text-4xl font-semibold">
+    <span className="text-gray-400">Proxion</span> Is Coming!
+  </h1>
 
-        <div className="relative w-full flex justify-center">
-          <img
-            src="/iphone.png"
-            alt="Phone Mockup"
-            className="transform -rotate-12 w-64 h-auto sm:w-80 md:w-[30rem] md:h-[25rem] drop-shadow-2xl"
-          />
-        </div>
-      </div>
+  <div className="relative flex justify-center w-full">
+    <img
+      src="/iphone.png"
+      alt="Phone Mockup"
+      className="
+        w-[220px] sm:w-[280px] md:w-[360px] lg:w-[420px]
+        h-auto
+        object-contain
+        rotate-[-6deg] md:rotate-[-10deg]
+        drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]
+        transition-transform duration-500
+        hover:rotate-0
+      "
+    />
+  </div>
+</div>
     </section>
   );
 }
