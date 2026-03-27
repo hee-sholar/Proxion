@@ -24,7 +24,7 @@ export const subscribeUser = async (req, res) => {
         <div style="font-family: Arial, sans-serif; color: #333;">
           <h2>Hello ${name || "there"},</h2>
           <p>Thanks for subscribing to <strong>Proxion</strong>!</p>
-          <a href="https://proxion.com" style="padding: 10px 20px; background-color: #00FFC3; color: black; border-radius: 6px; text-decoration: none;">Visit Proxion</a>
+          <a href="https://proxion-zie7.vercel.app/" style="padding: 10px 20px; background-color: #00FFC3; color: black; border-radius: 6px; text-decoration: none;">Visit Proxion</a>
         </div>
       `,
     });
