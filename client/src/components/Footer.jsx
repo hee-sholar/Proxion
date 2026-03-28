@@ -42,13 +42,6 @@ export default function Footer() {
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-2xl"
-        >
-          ☰
-        </button>
       </div>
 
       {/* Mobile Menu */}
