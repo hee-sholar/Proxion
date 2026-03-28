@@ -11,7 +11,7 @@ export function Hero() {
   const [name, setName] = useState(""); // optional name
   const [loading, setLoading] = useState(false);
 
-  const backendUrl = "http://localhost:5001"; // ✅ Use http
+  const backendUrl = "https://proxion-tdr9.vercel.app"; // ✅ Use https
 
   const handleSubscribe = async () => {
     if (!email || !email.includes("@")) {

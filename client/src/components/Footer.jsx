@@ -1,12 +1,47 @@
 "use client";
 
 import React, { useState } from "react";
+import axios from "axios";
+import { toast, Toaster } from "react-hot-toast";
 
 export default function Footer() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const backendUrl = "https://proxion-tdr9.vercel.app";
+
+  const handleSubscribe = async () => {
+    if (!email || !email.includes("@")) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data } = await axios.post(`${backendUrl}/api/subscribe`, {
+        email,
+      });
+
+      toast.success(data.message || "Subscribed successfully 🎉");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+
+      if (err.response?.data?.message) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Something went wrong. Try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <footer className="bg-black text-white py-8 px-4 sm:px-6">
+      <Toaster position="top-right" />
+
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
 
         {/* Logo */}
@@ -17,10 +52,19 @@ export default function Footer() {
           <input
             type="email"
             placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full sm:w-64 px-4 py-2 bg-black text-white placeholder-gray-400 focus:outline-none"
           />
-          <button className="w-full sm:w-auto bg-[#00FFC3] hover:bg-[#00e6b0] text-black font-semibold px-5 py-2 transition">
-            Get Early Access
+
+          <button
+            onClick={handleSubscribe}
+            disabled={loading}
+            className={`w-full cursor-pointer sm:w-auto bg-[#00FFC3] text-black font-semibold px-5 py-2 transition ${
+              loading ? "opacity-60 cursor-not-allowed" : "hover:bg-[#00e6b0]"
+            }`}
+          >
+            {loading ? "Submitting..." : "Get Early Access"}
           </button>
         </div>
 
@@ -41,28 +85,7 @@ export default function Footer() {
             Whitepaper
           </a>
         </nav>
-
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="lg:hidden mt-6 flex flex-col items-center gap-4 text-center text-sm font-medium border-t border-gray-800 pt-4">
-          <a href="/" className="text-gray-400 hover:text-[#00FFC3] transition">
-            Home
-          </a>
-          <a href="#features" className="text-gray-400 hover:text-[#00FFC3] transition">
-            Features
-          </a>
-          <a
-            href="https://your-gitbook-link.gitbook.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-400 hover:text-[#00FFC3] transition"
-          >
-            Whitepaper
-          </a>
-        </div>
-      )}
     </footer>
   );
 }
