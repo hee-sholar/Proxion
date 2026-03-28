@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import connectDB from "./config/db.js";
 import subscriberRoutes from "./routes/subscriberRoutes.js";
 
@@ -8,6 +9,7 @@ dotenv.config();
 const app = express();
 
 // ✅ Middleware to parse JSON
+app.use(cors());
 app.use(express.json());  
 
 // Connect to MongoDB

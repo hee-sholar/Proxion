@@ -3,18 +3,55 @@
 import React, { useState } from "react";
 import { Mail } from "lucide-react";
 import { Features } from "./Features";
+import { toast, Toaster } from "react-hot-toast";
+import axios from "axios";
 
 export function Hero() {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState(""); // optional name
+  const [loading, setLoading] = useState(false);
+
+  const backendUrl = "http://localhost:5001"; // ✅ Use http
+
+  const handleSubscribe = async () => {
+    if (!email || !email.includes("@")) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data } = await axios.post(`${backendUrl}/api/subscribe`, {
+        email,
+        name: name || undefined, // send name if available
+      });
+
+      toast.success(data.message || "Successfully subscribed! 🎉");
+      setEmail("");
+      setName("");
+    } catch (err) {
+      console.error("Subscription error:", err);
+
+      if (err.response && err.response.data && err.response.data.message) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Server error. Please try again later.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
+      <Toaster position="top-right" />
+
       <section
         id="home"
         data-aos="fade-up"
-        className="relative min-h-screen bg-black text-white pt-24 sm:pt-28 pb-16 px-4 sm:px-6 overflow-hidden overflow-x-hidden"
+        className="relative min-h-screen bg-black text-white pt-24 sm:pt-28 pb-16 px-4 sm:px-6 overflow-hidden"
       >
-        {/* Background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 -left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/3 -right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -28,15 +65,18 @@ export function Hero() {
               </span>
             </div>
           </div>
+
           <h1 className="text-gray-500 text-[clamp(2rem,6vw,4.5rem)] font-light text-center mb-4 leading-tight">
             The wallet that
             <br />
             <span className="text-gray-100">understands you.</span>
           </h1>
+
           <p className="text-center text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-xl mx-auto">
-            An intelligent, secure wallet designed for how people actually
-            interact with the digital world.
+            An intelligent, secure wallet designed for how people actually interact with the digital world.
           </p>
+
+          {/* Email subscription */}
           <div className="flex justify-center mb-4">
             <div className="w-full max-w-md">
               <div className="flex flex-col sm:flex-row gap-3 w-full">
@@ -51,8 +91,14 @@ export function Hero() {
                   />
                 </div>
 
-                <button className="cursor-pointer w-full sm:w-auto px-6 py-3 bg-[#00FFC3] text-black rounded-full font-semibold hover:bg-[#00e6b0] transition">
-                  Get Early Access
+                <button
+                  onClick={handleSubscribe}
+                  disabled={loading}
+                  className={`cursor-pointer w-full sm:w-auto px-6 py-3 bg-[#00FFC3] text-black rounded-full font-semibold hover:bg-[#00e6b0] transition ${
+                    loading ? "opacity-60 cursor-not-allowed" : ""
+                  }`}
+                >
+                  {loading ? "Submitting..." : "Get Early Access"}
                 </button>
               </div>
             </div>
