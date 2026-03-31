@@ -30,7 +30,7 @@ export function Navbar() {
             scrollToSection("home");
           }}
         >
-          <img src="/logo.png" alt="logo" className="h-10 w-auto" />
+          <img src="/prologo.jpeg" alt="logo" className="h-10 w-auto" />
         </a>
 
         {/* Desktop Nav */}
