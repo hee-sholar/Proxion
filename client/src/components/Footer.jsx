@@ -45,7 +45,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
 
         {/* Logo */}
-        <img src="/prologo.jpeg" className="h-8 sm:h-10" />
+        <img src="/prologo.jpeg" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto" />
 
         {/* Email */}
         <div className="flex flex-col sm:flex-row items-center w-full sm:w-auto overflow-hidden rounded-lg border border-gray-700">
