@@ -21,7 +21,6 @@ export function Navbar() {
       className="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-gray-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
-        
         {/* Logo */}
         <a
           href="#home"
@@ -30,7 +29,11 @@ export function Navbar() {
             scrollToSection("home");
           }}
         >
-          <img src="/prologo.jpeg" alt="logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto" />
+          <img
+            src="/prologo.jpeg"
+            alt="logo"
+            className="h-14 sm:h-12 md:h-14 lg:h-16 w-auto"
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -87,7 +90,6 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-black border-t border-gray-800 px-6 py-6">
           <div className="flex flex-col items-center text-center space-y-6">
-            
             {/* Home */}
             <a
               href="#home"
