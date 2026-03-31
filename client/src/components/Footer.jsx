@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
+import { Linkedin, Twitter, Send } from "lucide-react"; // LinkedIn, X/Twitter, Telegram
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -39,7 +40,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white py-8 px-4 sm:px-6">
+    <footer id="footer" className="bg-black text-white py-8 px-4 sm:px-6">
       <Toaster position="top-right" />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -47,7 +48,7 @@ export default function Footer() {
         {/* Logo */}
         <img src="/prologo.jpeg" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto" />
 
-        {/* Email */}
+        {/* Email Subscription */}
         <div className="flex flex-col sm:flex-row items-center w-full sm:w-auto overflow-hidden rounded-lg border border-gray-700">
           <input
             type="email"
@@ -77,7 +78,7 @@ export default function Footer() {
             Features
           </a>
           <a
-            href="https://your-gitbook-link.gitbook.io"
+            href="https://proxion.gitbook.io/proxion"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-[#00FFC3] transition"
@@ -85,6 +86,39 @@ export default function Footer() {
             Whitepaper
           </a>
         </nav>
+
+        {/* Social Media Links */}
+        <div className="flex items-center gap-4 mt-4 lg:mt-0">
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/showcase/proxiox/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-[#00FFC3] transition"
+          >
+            <Linkedin size={24} />
+          </a>
+
+          {/* X / Twitter */}
+          <a
+            href="https://x.com/ProxionWallet" // Real X account
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-[#00FFC3] transition"
+          >
+            <Twitter size={24} />
+          </a>
+
+          {/* Telegram */}
+          <a
+            href="https://t.me/proxion_channel" // Real Telegram link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-[#00FFC3] transition"
+          >
+            <Send size={24} />
+          </a>
+        </div>
       </div>
     </footer>
   );

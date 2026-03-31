@@ -61,7 +61,7 @@ export function Navbar() {
           </a>
 
           <a
-            href="https://your-gitbook-link.gitbook.io"
+            href="https://proxion.gitbook.io/proxion"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition"
@@ -72,7 +72,10 @@ export function Navbar() {
 
         {/* Desktop Button */}
         <div className="hidden md:block">
-          <button className="bg-white cursor-pointer text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition">
+          <button
+            onClick={() => scrollToSection("footer")}
+            className="bg-white cursor-pointer text-black px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition"
+          >
             Contact Us
           </button>
         </div>
@@ -118,7 +121,7 @@ export function Navbar() {
 
             {/* Whitepaper */}
             <a
-              href="https://your-gitbook-link.gitbook.io"
+              href="https://proxion.gitbook.io/proxion"
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
@@ -130,8 +133,14 @@ export function Navbar() {
             {/* Divider */}
             <div className="w-full border-t border-gray-800"></div>
 
-            {/* Button */}
-            <button className="cursor-pointer w-full max-w-xs bg-white text-black py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+            {/* Contact Us Button */}
+            <button
+              onClick={() => {
+                scrollToSection("footer");
+                closeMenu();
+              }}
+              className="cursor-pointer w-full max-w-xs bg-white text-black py-3 rounded-full font-semibold hover:bg-gray-100 transition"
+            >
               Contact Us
             </button>
           </div>
