@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import { Linkedin, Twitter, Send } from "lucide-react"; // LinkedIn, X/Twitter, Telegram
+import { FaTelegramPlane } from "react-icons/fa"; 
+import { RiTwitterXFill } from "react-icons/ri";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -106,7 +108,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-[#00FFC3] transition"
           >
-            <Twitter size={24} />
+            <RiTwitterXFill size={24} />
           </a>
 
           {/* Telegram */}
@@ -116,7 +118,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-[#00FFC3] transition"
           >
-            <Send size={24} />
+            <FaTelegramPlane size={24} />
           </a>
         </div>
       </div>
