@@ -1,19 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Mail } from "lucide-react";
+import { Mail, X } from "lucide-react";
 import { Features } from "./Features";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { useForm } from "@formspree/react";
 
 export function Hero() {
   const [email, setEmail] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const [state, handleSubmit] = useForm("xkopvwep");
 
   useEffect(() => {
     if (state.succeeded) {
-      toast.success("Successfully subscribed! 🎉");
+      setShowModal(true);
       setEmail("");
     }
 
@@ -36,8 +37,6 @@ export function Hero() {
 
   return (
     <>
-      <Toaster position="top-right" />
-
       <section
         id="home"
         data-aos="fade-up"
@@ -67,11 +66,7 @@ export function Hero() {
             An intelligent, secure wallet designed for how people actually interact with the digital world.
           </p>
 
-          {/* Formspree subscription */}
-          <form
-            onSubmit={handleSubscribe}
-            className="flex justify-center mb-4"
-          >
+          <form onSubmit={handleSubscribe} className="flex justify-center mb-4">
             <div className="w-full max-w-md">
               <div className="flex flex-col sm:flex-row gap-3 w-full">
                 <div className="relative flex-1">
@@ -116,6 +111,41 @@ export function Hero() {
             className="w-full max-w-[95%] sm:max-w-4xl mx-auto rounded-2xl sm:rounded-3xl shadow-2xl animate-float"
           />
         </div>
+
+        {/* Success Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+            <div className="bg-[#111] border border-gray-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl">
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              >
+                <X size={20} />
+              </button>
+
+              <div className="text-4xl mb-4">🎉✨</div>
+
+              <h2 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+                You're In!
+              </h2>
+
+              <p className="text-gray-400 leading-7">
+                Thanks for joining the <span className="text-white font-medium">Proxion waitlist</span> 🚀
+                <br />
+                We’ve just sent you a confirmation email 📩
+                <br />
+                Stay close — something exciting is coming soon ✨
+              </p>
+
+              <button
+                onClick={() => setShowModal(false)}
+                className="mt-6 px-6 py-3 bg-[#00FFC3] text-black rounded-full font-semibold hover:bg-[#00e6b0] transition"
+              >
+                Awesome 🚀
+              </button>
+            </div>
+          </div>
+        )}
 
         <style>{`
           @keyframes float {
