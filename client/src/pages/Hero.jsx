@@ -1,46 +1,37 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail } from "lucide-react";
 import { Features } from "./Features";
 import { toast, Toaster } from "react-hot-toast";
-import axios from "axios";
+import { useForm } from "@formspree/react";
 
 export function Hero() {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState(""); // optional name
-  const [loading, setLoading] = useState(false);
 
-  const backendUrl = "https://proxion-tdr9.vercel.app"; // ✅ Use https
+  const [state, handleSubmit] = useForm("xzdkabob");
 
-  const handleSubscribe = async () => {
+  useEffect(() => {
+    if (state.succeeded) {
+      toast.success("Successfully subscribed! 🎉");
+      setEmail("");
+    }
+
+    if (state.errors && state.errors.length > 0) {
+      toast.error("Subscription failed. Please try again.");
+      console.error("Formspree errors:", state.errors);
+    }
+  }, [state.succeeded, state.errors]);
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+
     if (!email || !email.includes("@")) {
       toast.error("Please enter a valid email address.");
       return;
     }
 
-    setLoading(true);
-
-    try {
-      const { data } = await axios.post(`${backendUrl}/api/subscribe`, {
-        email,
-        name: name || undefined, // send name if available
-      });
-
-      toast.success(data.message || "Successfully subscribed! 🎉");
-      setEmail("");
-      setName("");
-    } catch (err) {
-      console.error("Subscription error:", err);
-
-      if (err.response && err.response.data && err.response.data.message) {
-        toast.error(err.response.data.message);
-      } else {
-        toast.error("Server error. Please try again later.");
-      }
-    } finally {
-      setLoading(false);
-    }
+    await handleSubmit(e);
   };
 
   return (
@@ -76,14 +67,19 @@ export function Hero() {
             An intelligent, secure wallet designed for how people actually interact with the digital world.
           </p>
 
-          {/* Email subscription */}
-          <div className="flex justify-center mb-4">
+          {/* Formspree subscription */}
+          <form
+            onSubmit={handleSubscribe}
+            className="flex justify-center mb-4"
+          >
             <div className="w-full max-w-md">
               <div className="flex flex-col sm:flex-row gap-3 w-full">
                 <div className="relative flex-1">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+
                   <input
                     type="email"
+                    name="email"
                     placeholder="Enter your email address"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -92,17 +88,21 @@ export function Hero() {
                 </div>
 
                 <button
-                  onClick={handleSubscribe}
-                  disabled={loading}
+                  type="submit"
+                  disabled={state.submitting}
                   className={`cursor-pointer w-full sm:w-auto px-6 py-3 bg-[#00FFC3] text-black rounded-full font-semibold hover:bg-[#00e6b0] transition ${
-                    loading ? "opacity-60 cursor-not-allowed" : ""
+                    state.submitting
+                      ? "opacity-60 cursor-not-allowed"
+                      : ""
                   }`}
                 >
-                  {loading ? "Submitting..." : "Get Early Access"}
+                  {state.submitting
+                    ? "Submitting..."
+                    : "Get Early Access"}
                 </button>
               </div>
             </div>
-          </div>
+          </form>
 
           <p className="text-center text-gray-500 text-sm mb-10">
             Join 14k+ founding community waiting...
