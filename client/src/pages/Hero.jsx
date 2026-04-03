@@ -63,10 +63,14 @@ export function Hero() {
           </h1>
 
           <p className="text-center text-gray-400 text-sm sm:text-base md:text-lg mb-8 max-w-xl mx-auto">
-            An intelligent, secure wallet designed for how people actually interact with the digital world.
+            An intelligent, secure wallet designed for how people actually
+            interact with the digital world.
           </p>
 
-          <form onSubmit={handleSubscribe} className="flex justify-center mb-4">
+          <form
+            onSubmit={handleSubscribe}
+            className="flex justify-center mb-4"
+          >
             <div className="w-full max-w-md">
               <div className="flex flex-col sm:flex-row gap-3 w-full">
                 <div className="relative flex-1">
@@ -114,7 +118,7 @@ export function Hero() {
 
         {/* Success Modal */}
         {showModal && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center lg:items-start lg:pt-28 z-50 px-4">
             <div className="bg-[#111] border border-gray-800 rounded-3xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl">
               <button
                 onClick={() => setShowModal(false)}
@@ -130,7 +134,11 @@ export function Hero() {
               </h2>
 
               <p className="text-gray-400 leading-7">
-                Thanks for joining the <span className="text-white font-medium">Proxion waitlist</span> 🚀
+                Thanks for joining the{" "}
+                <span className="text-white font-medium">
+                  Proxion waitlist
+                </span>{" "}
+                🚀
                 <br />
                 We’ve just sent you a confirmation email 📩
                 <br />
@@ -149,9 +157,14 @@ export function Hero() {
 
         <style>{`
           @keyframes float {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-20px);
+            }
           }
+
           .animate-float {
             animation: float 4s ease-in-out infinite;
           }
