@@ -171,9 +171,9 @@ export function Hero() {
         `}</style>
       </section>
 
-      <section id="features">
+      {/* <section id="features">
         <Features />
-      </section>
+      </section> */}
     </>
   );
 }
